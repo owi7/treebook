@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130513114145) do
+ActiveRecord::Schema.define(:version => 20130513152515) do
 
   create_table "statuses", :force => true do |t|
     t.text     "content"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20130513114145) do
   add_index "statuses", ["user_id"], :name => "index_statuses_on_user_id"
 
   create_table "users", :force => true do |t|
+    t.integer  "user_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "profile_name"
@@ -42,5 +43,6 @@ ActiveRecord::Schema.define(:version => 20130513114145) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["user_id"], :name => "index_users_on_user_id", :unique => true
 
 end
